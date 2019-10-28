@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="dain_test" type="DartTestRunConfigurationType" factoryName="Dart Test" singleton="false">
+    <option name="filePath" value="$PROJECT_DIR$/test" />
+    <option name="scope" value="FOLDER" />
+    <method v="2" />
+  </configuration>
+</component>
