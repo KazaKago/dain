@@ -7,7 +7,7 @@ class Scoped<T> extends Bean<T> {
   final Map<String, T> _sharedInstanceMap = {};
   final String _scopeName;
 
-  Scoped(this._scopeName, T createInstance()) : super(createInstance) {
+  Scoped(this._scopeName, final T Function() createInstance) : super(createInstance) {
     if (_scopeName == null) throw ScopeNameNotAllowedNullError();
   }
 

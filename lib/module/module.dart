@@ -15,15 +15,15 @@ abstract class Module {
     return _beans;
   }
 
-  Single single<T>(T createInstance()) {
+  Single single<T>(final T Function() createInstance) {
     return Single<T>(createInstance);
   }
 
-  Factory factory<T>(T createInstance()) {
+  Factory factory<T>(final T Function() createInstance) {
     return Factory<T>(createInstance);
   }
 
-  Scoped scoped<T>(final String scopeName, T createInstance()) {
+  Scoped scoped<T>(final String scopeName, final T Function() createInstance) {
     return Scoped<T>(scopeName, createInstance);
   }
 }

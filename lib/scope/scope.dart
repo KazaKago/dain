@@ -9,7 +9,7 @@ class Scope {
   final List<Module> _modules;
   final String _scopeId;
   final String _scopeName;
-  void Function(String scopeId) _closeSelfFunc;
+  final void Function(String scopeId) _closeSelfFunc;
   bool isClose = false;
 
   Scope(this._modules, this._scopeId, this._scopeName, this._closeSelfFunc) {
