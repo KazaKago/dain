@@ -1,6 +1,6 @@
 # Dain
 
-A dynamic dependency injection framework for Dart developers inspired by Koin.
+A dynamic dependency injection framework for Dart developers.
 
 ## Getting Started
 
