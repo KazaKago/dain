@@ -7,17 +7,17 @@ void main() {
     ExampleModule(),
   ]);
 
-  final exampleModel = Dain.inject<ExampleModel>();
+  final exampleModel = Dain.inject<ExampleService>();
   exampleModel.sayHello(); // print "Hello World!"
 }
 
 //Interface class
-abstract class ExampleModel {
+abstract class ExampleService {
   void sayHello();
 }
 
 //Implementation class
-class ExampleModelImpl extends ExampleModel {
+class ExampleServiceImpl extends ExampleService {
   @override
   void sayHello() {
     print("Hello World!");
@@ -29,7 +29,7 @@ class ExampleModule extends Module {
   @override
   List<Bean> register() {
     return [
-      single<ExampleModel>(() => ExampleModelImpl()),
+      single<ExampleService>(() => ExampleServiceImpl()),
     ];
   }
 }

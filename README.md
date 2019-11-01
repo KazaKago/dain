@@ -1,14 +1,60 @@
-# Dain
+# [WIP] Dain
 
-A dynamic dependency injection framework for Dart developers.
+![https://img.shields.io/pub/v/dain](https://img.shields.io/pub/v/dain) ![https://img.shields.io/github/license/KazaKago/dain](https://img.shields.io/github/license/KazaKago/dain)
 
-## Getting Started
+A dynamic dependency injection framework for Dart developers.  
+The library is created inspired by "[Koin](https://github.com/InsertKoinIO/koin)". (Not all features are yet covered.)  
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+# Basic Usage
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## 1. Create Interface & Implementation Class.
+
+Let's create interface class.  
+
+```dart
+abstract class ExampleService {
+  void sayHello();
+}
+```
+
+Next, create implementation class.  
+At this time, implementation class should extend interfaces.  
+
+```dart
+class ExampleServiceImpl extends ExampleService {
+  @override
+  void sayHello() {
+    print("Hello World!");
+  }
+}
+```
+
+## 2. Create module class and Declaring dependencies.
+
+```dart
+class ExampleModule extends Module {
+  @override
+  List<Bean> register() {
+    return [
+      single<ExampleService>(() => ExampleServiceImpl()),
+    ];
+  }
+}
+```
+
+## 3. Register modules and Inject class.
+
+```dart
+void main() {
+  Dain.start([
+    ExampleModule(),
+  ]);
+
+  final exampleModel = Dain.inject<ExampleService>();
+  exampleModel.sayHello(); // print "Hello World!"
+}
+```
+
+# Advanced
+
+[WIP]

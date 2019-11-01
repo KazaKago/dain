@@ -1,6 +1,6 @@
 name: dain
 description: A dynamic dependency injection framework for Dart developers.
-version: 0.0.3
+version: 0.0.4
 author: KazaKago <weathercock-perch@yahoo.co.jp>
 homepage: https://github.com/KazaKago/Dain
 
