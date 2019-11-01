@@ -7,7 +7,7 @@ The library is created inspired by "[Koin](https://github.com/InsertKoinIO/koin)
 
 # Basic Usage
 
-## 1. Create Interface & Implementation Class.
+## 1. Create interface & implementation class.
 
 Let's create interface class.  
 
@@ -29,7 +29,7 @@ class ExampleServiceImpl extends ExampleService {
 }
 ```
 
-## 2. Create module class and Declaring dependencies.
+## 2. Create module class & declaring dependencies.
 
 ```dart
 class ExampleModule extends Module {
@@ -42,7 +42,7 @@ class ExampleModule extends Module {
 }
 ```
 
-## 3. Register modules and Inject class.
+## 3. Register modules & inject class.
 
 ```dart
 void main() {
