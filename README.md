@@ -1,6 +1,6 @@
-# [WIP] Dain
+# [EAP] Dain
 
-![https://img.shields.io/pub/v/dain](https://img.shields.io/pub/v/dain) ![https://img.shields.io/github/license/KazaKago/dain](https://img.shields.io/github/license/KazaKago/dain)
+[![pub package](https://img.shields.io/pub/v/dain)](https://pub.dev/packages/dain) [![license](https://img.shields.io/github/license/KazaKago/dain)](https://github.com/KazaKago/dain/blob/master/LICENSE)
 
 A dynamic dependency injection framework for Dart developers.  
 The library is created inspired by "[Koin](https://github.com/InsertKoinIO/koin)". (Not all features are yet covered.)  
