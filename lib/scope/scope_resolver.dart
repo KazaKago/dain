@@ -1,16 +1,16 @@
-import 'package:dain/error/no_scope_found_error.dart';
-import 'package:dain/error/scope_already_exists_error.dart';
+import 'package:dain/error/no_scope_found_exception.dart';
+import 'package:dain/error/scope_already_exists_exception.dart';
 import 'package:dain/module/module.dart';
 import 'package:dain/scope/scope.dart';
 
 class ScopeResolver {
-  static Map<String, Scope> _scopeMap = {};
+  const ScopeResolver._();
 
-  ScopeResolver._();
+  static final Map<String, Scope> _scopeMap = {};
 
   static Scope createScope(final List<Module> modules, final String scopeId, final String scopeName) {
     var scope = _resolveScope(scopeId);
-    if (scope != null) throw ScopeAlreadyExistsError(scopeId);
+    if (scope != null) throw ScopeAlreadyExistsException(scopeId);
     scope = Scope(modules, scopeId, scopeName, ScopeResolver._closeScope);
     _scopeMap[scopeId] = scope;
     return scope;
@@ -18,7 +18,7 @@ class ScopeResolver {
 
   static Scope getScope(final String scopeId) {
     final scope = _resolveScope(scopeId);
-    if (scope == null) throw NoScopeFoundError(scopeId);
+    if (scope == null) throw NoScopeFoundException(scopeId);
     return scope;
   }
 

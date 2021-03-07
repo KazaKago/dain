@@ -12,8 +12,8 @@ void main() {
   });
 
   test('adds one to input values', () {
-    final scope1_1 = Dain.createScope("scope1", "MY_SCOPE");
-    final instance1_1_1 = scope1_1.inject<ScopedModel>(parameters: {"param": "Hi!"});
+    final scope1_1 = Dain.createScope('scope1', 'MY_SCOPE');
+    final instance1_1_1 = scope1_1.inject<ScopedModel>(parameters: <String, String>{'param': 'Hi!'});
     final instance1_1_2 = scope1_1.inject<ScopedModel>();
     expect(instance1_1_1.hashCode, equals(instance1_1_2.hashCode));
 

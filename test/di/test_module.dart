@@ -8,7 +8,7 @@ class TestModule extends Module {
   @override
   List<Bean> register() {
     return [
-      scoped<ScopedModel>("MY_SCOPE", () => ScopedModelImpl()),
+      scoped<ScopedModel>('MY_SCOPE', () => ScopedModelImpl()),
     ];
   }
 }
