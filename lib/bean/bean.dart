@@ -4,5 +4,5 @@ abstract class Bean<T> {
   final Type type = T;
   final T Function() createInstance;
 
-  T getOrCreateInstance({final String scopeId, final String scopeName});
+  T? getOrCreateInstance({required final String scopeId, required final String scopeName});
 }

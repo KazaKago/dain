@@ -35,7 +35,7 @@ class ScopeResolver {
     _scopeMap.remove(scopeId);
   }
 
-  static Scope _resolveScope(final String scopeId) {
+  static Scope? _resolveScope(final String scopeId) {
     final scope = _scopeMap[scopeId];
     if (scope?.isClose == false) {
       return scope;

@@ -4,8 +4,8 @@ import 'package:dain/bean/scoped.dart';
 import 'package:dain/bean/single.dart';
 
 abstract class Module {
-  List<Bean<dynamic>> _beans;
-  T Function<T>() get = <T>() => null;
+  List<Bean<dynamic>>? _beans;
+  T? Function<T>() get = <T>() => null;
   Map<String, dynamic> parameters = <String, dynamic>{};
 
   List<Bean<dynamic>> register();

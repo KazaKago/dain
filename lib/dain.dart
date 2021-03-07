@@ -13,7 +13,7 @@ class Dain {
     SingletonScope.setCreateModules(modules);
   }
 
-  static T inject<T>({final Map<String, dynamic> parameters}) {
+  static T inject<T>({final Map<String, dynamic>? parameters}) {
     return SingletonScope.inject<T>(parameters: parameters);
   }
 

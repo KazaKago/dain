@@ -1,15 +1,10 @@
 import 'package:dain/bean/scoped.dart';
 import 'package:dain/error/bean_instance_creation_exception.dart';
 import 'package:dain/error/closed_scope_exception.dart';
-import 'package:dain/error/scope_id_not_allowed_null_exception.dart';
-import 'package:dain/error/scope_name_not_allowed_null_exception.dart';
 import 'package:dain/module/module.dart';
 
 class Scope {
-  Scope(this._modules, this._scopeId, this._scopeName, this._closeSelfFunc) {
-    if (_scopeId == null) throw const ScopeIdNotAllowedNullException();
-    if (_scopeName == null) throw const ScopeNameNotAllowedNullException();
-  }
+  Scope(this._modules, this._scopeId, this._scopeName, this._closeSelfFunc);
 
   final List<Module> _modules;
   final String _scopeId;
@@ -17,7 +12,7 @@ class Scope {
   final void Function(String scopeId) _closeSelfFunc;
   bool isClose = false;
 
-  T inject<T>({final Map<String, dynamic> parameters}) {
+  T inject<T>({final Map<String, dynamic>? parameters}) {
     for (final module in _modules) {
       module
         ..get = _dispatchInject
@@ -54,8 +49,9 @@ class Scope {
     throw BeanInstanceCreationException(T);
   }
 
-  T _resolve<T>(final Module module) {
-    final bean = module.beans().firstWhere((bean) => T == bean.type, orElse: () => null);
-    return bean?.getOrCreateInstance(scopeId: _scopeId, scopeName: _scopeName) as T;
+  T? _resolve<T>(final Module module) {
+    final beans = module.beans().where((bean) => T == bean.type);
+    if (beans.isEmpty) return null;
+    return beans.first.getOrCreateInstance(scopeId: _scopeId, scopeName: _scopeName) as T?;
   }
 }
