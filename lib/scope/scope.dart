@@ -15,13 +15,13 @@ class Scope {
   T inject<T>({final Map<String, dynamic>? parameters}) {
     for (final module in _modules) {
       module
-        ..get = _dispatchInject
+        ..internalGet = _dispatchInject
         ..parameters = parameters ?? <String, dynamic>{};
     }
     final instance = _dispatchInject<T>();
     for (final module in _modules) {
       module
-        ..get = null
+        ..internalGet = null
         ..parameters = <String, dynamic>{};
     }
     return instance;
