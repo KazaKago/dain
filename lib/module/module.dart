@@ -5,13 +5,17 @@ import 'package:dain/bean/single.dart';
 
 abstract class Module {
   List<Bean<dynamic>>? _beans;
-  T Function<T>()? get;
+  T Function<T>()? internalGet;
   Map<String, dynamic> parameters = <String, dynamic>{};
 
   List<Bean<dynamic>> register();
 
   List<Bean<dynamic>> beans() {
     return _beans ??= register();
+  }
+
+  T get<T>() {
+    return internalGet!();
   }
 
   Single single<T>(final T Function() createInstance) {
