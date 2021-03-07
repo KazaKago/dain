@@ -4,15 +4,14 @@ import 'package:dain/bean/scoped.dart';
 import 'package:dain/bean/single.dart';
 
 abstract class Module {
-  List<Bean> _beans;
-  T Function<T>() get = (<T>() => null);
-  Map<String, dynamic> parameters = {};
+  List<Bean<dynamic>>? _beans;
+  T? Function<T>() get = <T>() => null;
+  Map<String, dynamic> parameters = <String, dynamic>{};
 
-  List<Bean> register();
+  List<Bean<dynamic>> register();
 
-  List<Bean> beans() {
-    if (_beans == null) _beans = register();
-    return _beans;
+  List<Bean<dynamic>> beans() {
+    return _beans ??= register();
   }
 
   Single single<T>(final T Function() createInstance) {

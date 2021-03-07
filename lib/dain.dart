@@ -4,16 +4,16 @@ import 'package:dain/scope/scope_resolver.dart';
 import 'package:dain/scope/singleton_scope.dart';
 
 class Dain {
+  const Dain._();
+
   static List<Module> _modules = [];
 
-  Dain._();
-
-  static start(final List<Module> modules) {
+  static void start(final List<Module> modules) {
     _modules = modules;
     SingletonScope.setCreateModules(modules);
   }
 
-  static T inject<T>({final Map<String, dynamic> parameters}) {
+  static T inject<T>({final Map<String, dynamic>? parameters}) {
     return SingletonScope.inject<T>(parameters: parameters);
   }
 

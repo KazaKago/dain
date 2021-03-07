@@ -1,13 +1,12 @@
 import 'package:dain/bean/bean.dart';
 
 class Single<T> extends Bean<T> {
-  T _sharedInstance;
-
   Single(final T Function() createInstance) : super(createInstance);
 
+  T? _sharedInstance;
+
   @override
-  T getOrCreateInstance({final String scopeId, final String scopeName}) {
-    if (_sharedInstance == null) _sharedInstance = createInstance();
-    return _sharedInstance;
+  T? getOrCreateInstance({required final String scopeId, required final String scopeName}) {
+    return _sharedInstance ??= createInstance();
   }
 }

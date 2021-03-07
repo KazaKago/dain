@@ -7,11 +7,9 @@ void main() {
     ExampleModule(),
   ]);
 
-  final exampleModel = Dain.inject<ExampleService>();
-  exampleModel.sayHello(); // print "Hello World!"
+  Dain.inject<ExampleService>().sayHello(); // print "Hello World!"
 }
 
-//Interface class
 abstract class ExampleService {
   void sayHello();
 }
@@ -20,7 +18,7 @@ abstract class ExampleService {
 class ExampleServiceImpl extends ExampleService {
   @override
   void sayHello() {
-    print("Hello World!");
+    print('Hello World!');
   }
 }
 
