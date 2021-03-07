@@ -21,7 +21,7 @@ class Scope {
     final instance = _dispatchInject<T>();
     for (final module in _modules) {
       module
-        ..get = (<T>() => null)
+        ..get = null
         ..parameters = <String, dynamic>{};
     }
     return instance;

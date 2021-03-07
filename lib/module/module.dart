@@ -5,7 +5,7 @@ import 'package:dain/bean/single.dart';
 
 abstract class Module {
   List<Bean<dynamic>>? _beans;
-  T? Function<T>() get = <T>() => null;
+  T Function<T>()? get;
   Map<String, dynamic> parameters = <String, dynamic>{};
 
   List<Bean<dynamic>> register();
