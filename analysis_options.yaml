@@ -1,7 +1,16 @@
+# Defines a default set of lint rules enforced for
+# projects at Google. For details and rationale,
+# see https://github.com/dart-lang/pedantic#enabled-lints.
 include: package:pedantic_mono/analysis_options.yaml
 
+# For lint rules and documentation, see http://dart-lang.github.io/linter/lints.
+# Uncomment to specify additional rules.
 linter:
   rules:
     lines_longer_than_80_chars: false
     one_member_abstracts: false
     always_put_control_body_on_new_line: false
+
+analyzer:
+#   exclude:
+#     - path/to/excluded/files/**
